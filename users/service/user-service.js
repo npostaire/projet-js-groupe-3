@@ -14,7 +14,24 @@ class UserService {
   }
 
   async fetchById(id) {
-    const response = await this.client.get(`/${id}`);
+    const response = await this.client.get(
+      `${id}?apiKey=566ec926-471e-11ee-be56-0242ac120002`
+    );
+    return response.data;
+  }
+
+  async toggleFavoriteById(id) {
+    console.log("toggleId");
+    const response = await this.client.patch(
+      `/toggle-favorite/${id}?apiKey=566ec926-471e-11ee-be56-0242ac120002`
+    );
+    return response.data;
+  }
+
+  async regenerate() {
+    const response = await this.client.get(
+      `/regenerate?apiKey=566ec926-471e-11ee-be56-0242ac120002`
+    );
     return response.data;
   }
 }

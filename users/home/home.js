@@ -34,12 +34,27 @@ class UserHome {
       $i.classList.add("bi-heart-fill");
     }
 
-    $favBtn.addEventListener("click", function (event) {
+    $favBtn.addEventListener("click", async (event) => {
       event.stopPropagation();
-      console.log("fav!");
+      (async () => {
+        const u = await this.userService.toggleFavoriteById(user.id);
+        console.log("fav!");
+        console.log(u);
+        const $i = $favBtn.querySelector("i");
+        toggleFavoriteIcon($i, u.isFavorite);
+      })();
     });
   }
 }
 
+function toggleFavoriteIcon($i, isFavorite) {
+  if (isFavorite) {
+    $i.classList.remove("bi-heart");
+    $i.classList.add("bi-heart-fill");
+  } else {
+    $i.classList.remove("bi-heart-fill");
+    $i.classList.add("bi-heart");
+  }
+}
 const userHome = new UserHome(userService);
 userHome.render();
