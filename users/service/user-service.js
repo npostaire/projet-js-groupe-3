@@ -7,14 +7,17 @@ class UserService {
   }
 
   async fetchAll() {
-    const response = await this.client.get();
+    const response = await this.client.get(
+      `?apiKey=566ec926-471e-11ee-be56-0242ac120002`
+    );
     return response.data;
   }
 
   async fetchById(id) {
-    const response = await this.client.get(`/${id}`);
+    const response = await this.client.get(`${USERS_URI}/${id}?apiKey=566ec926-471e-11ee-be56-0242ac120002`);
     return response.data;
   }
+  
 }
 
 export const userService = new UserService(
