@@ -1,13 +1,22 @@
+import axios from "https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/esm/axios.min.js";
+import { USERS_URI } from "../../constants.js";
+
 class UserService {
-  constructor(user) {
-    this.user = user;
+  constructor(axios) {
+    this.client = axios;
   }
 
-  getName() {
-    return this.user.name;
+  async fetchAll() {
+    const response = await this.client.get();
+    return response.data;
   }
 
-  getCity() {
-    return this.user.adress.city;
+  async fetchById(id) {
+    const response = await this.client.get(`/${id}`);
+    return response.data;
   }
 }
+
+export const userService = new UserService(
+  axios.create({ baseURL: USERS_URI })
+);
