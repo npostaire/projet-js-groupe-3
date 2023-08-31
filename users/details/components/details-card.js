@@ -12,7 +12,7 @@ export function DetailsCard(user) {
   <div class="user-card">
   <a href="#" class="card-link">
     <div class="card-circle">
-      <img src="https://robohash.org/${user.id}" alt="User Image" class="img-fluid">
+      <img src="https://robohash.org/${user.id}?set=set4" alt="User Image" class="img-fluid">
     </div>
   </a>
   <h1 class="mt-3">${user.name}</h1>
