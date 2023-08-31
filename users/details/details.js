@@ -1,5 +1,5 @@
 import { getParam } from "../../utils/get-param.js";
-import { userService } from "../service/user.service.js";
+import { userService } from "../service/user-service.js";
 import { DetailsCard } from "./components/details-card.js";
 
 const id = parseInt(getParam("id"));

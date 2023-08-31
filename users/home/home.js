@@ -1,4 +1,4 @@
-import { userService } from "../service/user.service.js";
+import { userService } from "../service/user-service.js";
 import { UserRow } from "./components/user-row.js";
 
 class UserHome {
