@@ -7,7 +7,9 @@ class UserService {
   }
 
   async fetchAll() {
-    const response = await this.client.get();
+    const response = await this.client.get(
+      `?apiKey=566ec926-471e-11ee-be56-0242ac120002`
+    );
     return response.data;
   }
 
